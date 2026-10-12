@@ -159,6 +159,19 @@ src/
 
 ---
 
+## Implementation and data boundary
+
+The current source code has these important operational boundaries:
+
+- Embedding generation sends the supplied text to the Hugging Face Inference API endpoint for `sentence-transformers/all-MiniLM-L6-v2`. Do not assume that source text stays on the local machine.
+- Semantic search uses a PostgreSQL client and queries a `documents` table with an embedding-distance operator. A working database, schema, compatible vector type/index, and valid credentials are required.
+- The database connector currently contains placeholder default values for the user, database, and password. Configure valid values explicitly; the placeholders are not production credentials.
+- The embedding service reads `vectorai.huggingfaceApiKey`, but the inspected `package.json` contributes only the database host and port settings. The Hugging Face key setting and secret-handling approach should be formalized before public distribution.
+- The query-improvement command returns a fixed guidance string; it is not an LLM-generated optimization result.
+- CI defines lint, compile, tests, and VSIX packaging. Workflow definitions and test files do not prove that a specific release passed.
+
+See [ADR-001: External embedding and data boundary](docs/adr/ADR-001-external-embedding-and-data-boundary.md).
+
 # 🎯 Architectural Principles
 
 * Modular Design
