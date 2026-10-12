@@ -170,7 +170,7 @@ The current source code has these important operational boundaries:
 - The query-improvement command returns a fixed guidance string; it is not an LLM-generated optimization result.
 - CI defines lint, compile, tests, and VSIX packaging. Workflow definitions and test files do not prove that a specific release passed.
 
-See [ADR-001: External embedding and data boundary](docs/adr/ADR-001-external-embedding-and-data-boundary.md).
+See [ADR-001: External embedding and data boundary](docs/ADR-004-external-embedding-and-data-boundary.md).
 
 # 🎯 Architectural Principles
 
