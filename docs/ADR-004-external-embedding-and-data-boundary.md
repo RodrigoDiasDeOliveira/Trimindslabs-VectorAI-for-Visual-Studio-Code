@@ -1,4 +1,4 @@
-# ADR-001: External Embedding and Database Boundary
+# ADR-004: External Embedding and Database Boundary
 
 - **Status:** ACCEPTED
 - **Date:** 2026-10-12
